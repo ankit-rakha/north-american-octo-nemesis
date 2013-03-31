@@ -1,0 +1,37 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="neo4jConnector:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/neo4jConnector_jar</output-path>
+    <root id="archive" name="neo4jConnector.jar">
+      <element id="module-output" name="neo4jConnector" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/neo4j/neo4j-udc/1.9.M05/neo4j-udc-1.9.M05.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/neo4j/neo4j-cluster/1.9.M05/neo4j-cluster-1.9.M05.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.2/slf4j-api-1.6.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/edu/ucla/sspace/sspace/2.0.3/sspace-2.0.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/neo4j/neo4j-graph-algo/1.9.M05/neo4j-graph-algo-1.9.M05.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/neo4j/neo4j-cypher/1.9.M05/neo4j-cypher-1.9.M05.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/zookeeper/zookeeper/3.3.2/zookeeper-3.3.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/neo4j/neo4j-consistency-check/1.9.M05/neo4j-consistency-check-1.9.M05.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/googlecode/disruptor/disruptor/2.10.3/disruptor-2.10.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/neo4j/neo4j-backup/1.9.M05/neo4j-backup-1.9.M05.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/googlecode/concurrentlinkedhashmap/concurrentlinkedhashmap-lru/1.3.1/concurrentlinkedhashmap-lru-1.3.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/neo4j/neo4j-management/1.9.M05/neo4j-management-1.9.M05.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/net/sf/trove4j/trove4j/3.0.2/trove4j-3.0.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/neo4j/neo4j-community/1.9.M05/neo4j-community-1.9.M05.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/io/netty/netty/3.5.7.Final/netty-3.5.7.Final.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/neo4j/neo4j-jmx/1.9.M05/neo4j-jmx-1.9.M05.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/neo4j/neo4j-kernel/1.9.M05/neo4j-kernel-1.9.M05.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/scala-lang/scala-library/2.10.0/scala-library-2.10.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/neo4j/neo4j-ha/1.9.M05/neo4j-ha-1.9.M05.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/ch/qos/logback/logback-core/0.9.30/logback-core-0.9.30.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/geronimo/specs/geronimo-jta_1.1_spec/1.1.1/geronimo-jta_1.1_spec-1.1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/ch/qos/logback/logback-classic/0.9.30/logback-classic-0.9.30.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/neo4j/neo4j-lucene-index/1.9.M05/neo4j-lucene-index-1.9.M05.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/neo4j/neo4j-com/1.9.M05/neo4j-com-1.9.M05.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/lucene/lucene-core/3.5.0/lucene-core-3.5.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/log4j/log4j/1.2.17/log4j-1.2.17.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/neo4j/neo4j-enterprise/1.9.M05/neo4j-enterprise-1.9.M05.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/neo4j/neo4j-advanced/1.9.M05/neo4j-advanced-1.9.M05.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/neo4j/neo4j-graph-matching/1.9.M05/neo4j-graph-matching-1.9.M05.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
