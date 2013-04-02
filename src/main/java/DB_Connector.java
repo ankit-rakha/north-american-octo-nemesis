@@ -15,7 +15,7 @@ public class DB_Connector
 {
     private static String DB_PATH = "";
     private static String INPUT_FILE = "";
-    private long time, total, initialTime, compTime;
+    private long time, total, initialTime, compTime,node_init,node_total,rel_init,rel_total;
     String resultString;
     long node_id1, node_id2;
 
@@ -32,9 +32,11 @@ public class DB_Connector
 
         //GraphDatabaseService db = new GraphDatabaseFactory().newEmbeddedDatabase( DB_PATH );
 
+        Map<String, Object> params = new HashMap<String, Object>();
+
         Map<String, String> config = new HashMap<String, String>();
-        config.put( "neostore.nodestore.db.mapped_memory", "10G" );
-        config.put( "neostore.relationshipstore.db.mapped_memory", "150G" );
+        config.put( "neostore.nodestore.db.mapped_memory", "1G" );
+        config.put( "neostore.relationshipstore.db.mapped_memory", "50G" );
         config.put( "neostore.propertystore.db.mapped_memory", "10G" );
         config.put( "neostore.propertystore.db.strings.mapped_memory", "10G" );
         config.put( "neostore.propertystore.db.arrays.mapped_memory", "10G" );
@@ -48,6 +50,26 @@ public class DB_Connector
 
         BufferedReader br = null;
 
+        System.out.println("Processing nodes ..");
+
+        node_init = System.currentTimeMillis();
+
+        engine.execute( "START n=node(*) RETURN COUNT(n)" );
+
+        node_total = (System.currentTimeMillis() - node_init);
+
+        System.out.println("took " + node_total + "ms");
+
+        System.out.println("Processing relationships ..");
+
+        rel_init = System.currentTimeMillis();
+
+        engine.execute( "START n=relationship(*) RETURN COUNT(n)" );
+
+        rel_total = (System.currentTimeMillis() - rel_init);
+
+        System.out.println("took " + rel_total + "ms");
+
         initialTime = System.currentTimeMillis();
 
         try {
@@ -57,8 +79,6 @@ public class DB_Connector
             br = new BufferedReader(new FileReader( INPUT_FILE ));
 
             while ((sCurrentLine = br.readLine()) != null) {
-
-                //System.out.println("Processing " + sCurrentLine);
 
                 StringTokenizer st1 = new StringTokenizer(sCurrentLine,"\t");
                 while (st1.hasMoreElements()){
@@ -73,7 +93,10 @@ public class DB_Connector
 
                     time = System.currentTimeMillis();
 
-                    resultString = engine.execute( "start node1=node("+node_id1+"),node2=node("+node_id2+") MATCH p=(node1)-[r]-(node2) return r" ).dumpToString();
+                    params.put( "node_id1", node_id1 );
+                    params.put( "node_id2", node_id2 );
+
+                    resultString = engine.execute( "START node1=node({node_id1}),node2=node({node_id2}) MATCH p=(node1)-[r:"+nodes_relationship+"]->(node2) RETURN r", params ).dumpToString();
 
                     if (resultString.toLowerCase().contains(nodes_relationship.toLowerCase()))
 
