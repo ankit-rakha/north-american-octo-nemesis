@@ -92,7 +92,7 @@ public class DB_Connector
 
                     time = System.currentTimeMillis();
 
-                    ExecutionResult result = engine.execute( "START node1=node({id1}),node2=node({id2}) MATCH p=(node1)-[:"+nodes_relationship+"]->(node2) RETURN node1", params );
+                    ExecutionResult result = engine.execute( "START node1=node({id1}),node2=node({id2}) MATCH (node1)-[:"+nodes_relationship+"]->(node2) RETURN node1", params );
                     total = (System.currentTimeMillis() - time);
 
                     Iterator<Node> checkNode = result.columnAs("node1");
