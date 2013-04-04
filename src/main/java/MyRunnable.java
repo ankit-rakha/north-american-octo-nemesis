@@ -1,13 +1,13 @@
+import org.neo4j.graphdb.GraphDatabaseService;
 import java.lang.String;
 import java.util.HashMap;
 import java.util.Map;
 import org.neo4j.cypher.javacompat.ExecutionEngine;
-import org.neo4j.cypher.javacompat.ExecutionResult;
-import org.neo4j.graphdb.GraphDatabaseService;
 
 public class MyRunnable implements Runnable {
 
-    private static String nodes_relationship;
+    public static volatile int totalTime,totalFound,totalNotFound;
+    private String nodes_relationship;
     private long time, total;
     private long node_id1, node_id2;
     private Map<String, Object> params = new HashMap<String, Object>();
@@ -31,37 +31,20 @@ public class MyRunnable implements Runnable {
             params.put( "id1", node_id1 );
             params.put( "id2", node_id2 );
 
-            time = System.currentTimeMillis();
+            long time = System.currentTimeMillis();
 
-            ExecutionResult result = engine.execute( "START node1=node({id1}),node2=node({id2}) MATCH (node1)-[:"+nodes_relationship+"]->(node2) RETURN node1", params);
-
-            //org.neo4j.helpers.collection.IteratorUtil.count(result);
-
-            //engine.execute( "START node1=node({id1}),node2=node({id2}) MATCH (node1)-[:"+nodes_relationship+"]->(node2) RETURN node1", params);
-
-            System.out.println("took " + total + "ms");
-
-            /*if (engine.execute( "START node1=node({id1}),node2=node({id2}) MATCH (node1)-[:"+nodes_relationship+"]->(node2) RETURN node1", params).columnAs("node1").hasNext()){
-                total = (System.currentTimeMillis() - time);
-                System.out.println("Found");
-                System.out.println("took " + total + "ms");
+            final String query = "START node1=node({id1}),node2=node({id2}) MATCH (node1)-[:" + nodes_relationship + "]->(node2) RETURN node1";
+            if (engine.execute(query, params).iterator().hasNext()){
+                totalFound++;
             }
             else {
-                total = (System.currentTimeMillis() - time);
-                System.out.println("Not Found");
-                System.out.println("took " + total + "ms");
+                totalNotFound++;
+            }
+            totalTime += (System.currentTimeMillis() - time);
 
-            }*/
-
-            Thread.sleep(500);
-
-        } catch (InterruptedException e) {
-
-            System.out.println("Interrupted.");
-
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
-        db.shutdown();
 
     }
 
