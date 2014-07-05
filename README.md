@@ -1,4 +1,4 @@
 north-american-octo-nemesis
 ===========================
 
-triplet verifier using cypher
+:speech_balloon: triplet verifier using cypher
